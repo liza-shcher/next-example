@@ -22,7 +22,6 @@ export default function Index(props) {
               <a>Posts</a>
             </Link>
           </div>
-          <PostsList posts={ props.posts }/>
           <ProductList products={ props.products }/>
         </main>
       </div>

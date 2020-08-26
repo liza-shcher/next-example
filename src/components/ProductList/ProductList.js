@@ -1,9 +1,9 @@
 import React from 'react';
 import ProductListItem from '../ProductListItem/ProductListItem';
 
-function ProductList({ products, posts }) {
+function ProductList({ products }) {
   return (
-      <div>
+      <>
         {
           products && products.length > 0 && (
               <div>
@@ -21,7 +21,7 @@ function ProductList({ products, posts }) {
               </div>
           )
         }
-      </div>
+      </>
   );
 }
 
