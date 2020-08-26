@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ProductListItem({imgSrc, title, description, price}) {
-
   return(
      <div className="product-item">
        <img src={imgSrc} alt="" />

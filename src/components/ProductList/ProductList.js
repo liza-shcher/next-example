@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
+import { getProducts } from '../../services/productService';
 import ProductListItem from '../ProductListItem/ProductListItem';
 
-let productIndex = 0;
 
 function ProductList({ products }) {
 
-  function getProducts (amount = 4) {
-    productIndex += amount;
-    return products.slice(productIndex - amount, productIndex);
-  }
-  const [selectedProducts, setSelectedProducts] = useState(getProducts());
+  const [selectedProducts, setSelectedProducts] = useState(products);
 
-  function onButtonClick() {
-    setSelectedProducts(getProducts())
+  function onButtonClick(startIndex, endIndex) {
+    setSelectedProducts(getProducts(startIndex, endIndex))
   }
 
   return (
       <>
         <h2>Product List</h2>
-        <button onClick={onButtonClick}>load products</button>
+
         {
           selectedProducts && selectedProducts.length > 0 && (
               <div className="product-list__list">
@@ -38,6 +34,14 @@ function ProductList({ products }) {
               </div>
           )
         }
+        <div className="pagination">
+          <button onClick={() => onButtonClick(0, 4)}>1</button>
+          <button onClick={() => onButtonClick(4, 8)}>2</button>
+          <button onClick={() => onButtonClick(8, 12)}>3</button>
+          <button onClick={() => onButtonClick(12, 16)}>4</button>
+          <button onClick={() => onButtonClick(16, 20)}>5</button>
+          <button onClick={() => onButtonClick(20, 24)}>6</button>
+        </div>
       </>
   );
 }

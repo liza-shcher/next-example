@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import ProductList from '../components/ProductList/ProductList';
 import products from '../data/products';
+import { getProducts } from '../services/productService';
 import styles from '../styles/Home.module.css';
 
 export default function Index(props) {
@@ -30,7 +31,7 @@ export default function Index(props) {
 export async function getStaticProps() {
   return {
     props: {
-      products: products.entries
+      products: getProducts()
     }
   };
 }
