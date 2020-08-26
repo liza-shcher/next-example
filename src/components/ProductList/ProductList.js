@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductListItem from '../ProductListItem/ProductListItem';
 
+let productIndex = 0;
+
 function ProductList({ products }) {
+
+  function getProducts (amount = 4) {
+    productIndex += amount;
+    return products.slice(productIndex - amount, productIndex);
+  }
+  const [selectedProducts, setSelectedProducts] = useState(getProducts());
+
+  function onButtonClick() {
+    setSelectedProducts(getProducts())
+  }
+
   return (
       <>
-        <button onClick={() => console.log('click')}>click</button>
+        <h2>Product List</h2>
+        <button onClick={onButtonClick}>load products</button>
         {
-          products && products.length > 0 && (
-              <div>
+          selectedProducts && selectedProducts.length > 0 && (
+              <div className="product-list__list">
                 {
-                  products.map((product, index) => {
+                  selectedProducts.map((product, index) => {
                     return (
                         <ProductListItem
                             key={ index }

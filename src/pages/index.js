@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import PostsList from '../components/PostsList/PostsList';
 import ProductList from '../components/ProductList/ProductList';
 import products from '../data/products';
 import styles from '../styles/Home.module.css';

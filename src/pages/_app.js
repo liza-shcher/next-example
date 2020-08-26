@@ -1,5 +1,6 @@
 import '../styles/globals.css';
-import '../styles/producListItem.css';
+import '../components/ProductListItem/producListItem.css';
+import '../components/ProductList/producList.css';
 import React from 'react';
 
 function MyApp({ Component, pageProps }) {
