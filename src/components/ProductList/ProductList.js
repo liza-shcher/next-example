@@ -14,7 +14,6 @@ function ProductList({ products }) {
   return (
       <>
         <h2>Product List</h2>
-
         {
           selectedProducts && selectedProducts.length > 0 && (
               <div className="product-list__list">
@@ -35,12 +34,12 @@ function ProductList({ products }) {
           )
         }
         <div className="pagination">
-          <button onClick={() => onButtonClick(0, 4)}>1</button>
-          <button onClick={() => onButtonClick(4, 8)}>2</button>
-          <button onClick={() => onButtonClick(8, 12)}>3</button>
-          <button onClick={() => onButtonClick(12, 16)}>4</button>
-          <button onClick={() => onButtonClick(16, 20)}>5</button>
-          <button onClick={() => onButtonClick(20, 24)}>6</button>
+          <button onClick={() => onButtonClick(0)}>1</button>
+          <button onClick={() => onButtonClick(4)}>2</button>
+          <button onClick={() => onButtonClick(8)}>3</button>
+          <button onClick={() => onButtonClick(12)}>4</button>
+          <button onClick={() => onButtonClick(16)}>5</button>
+          <button onClick={() => onButtonClick(20)}>6</button>
         </div>
       </>
   );

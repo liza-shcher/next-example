@@ -1,40 +1,24 @@
-import Link from 'next/link';
 import React from 'react';
-import Head from 'next/head';
+import Layout from '../components/Layout/Layout';
 import PostsList from '../components/PostsList/PostsList';
-import styles from '../styles/Home.module.css';
 
-function PostPage({posts}) {
-  return(
-      <div className={ styles.container }>
-        <Head>
-          <title>Create Next App</title>
-        </Head>
-
-        <main className={ styles.main }>
-          <div>
-            <Link href="/">
-              <a>Products</a>
-            </Link>
-            <Link href="/posts">
-              <a>Posts</a>
-            </Link>
-          </div>
-          <PostsList posts={ posts }/>
-        </main>
-      </div>
-  )
+function PostPage({ posts }) {
+  return (
+      <Layout pageTitle="Product List">
+        <PostsList posts={ posts }/>
+      </Layout>
+  );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
   const posts = await res.json();
-  console.log(posts);
   return {
     props: {
-      posts: posts,
+      posts: posts
     }
   };
 }
 
 export default PostPage;
+
